@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class Duck(ABC):
     def __init__(self):
-        pass
+        self.va: Flyable = None
 
     @abstractmethod
     def display(self):
@@ -16,6 +16,9 @@ class Duck(ABC):
     @abstractmethod
     def quack(self):
         pass
+
+    def performFly(self):
+        self.va.fly()
 
 
 class Flyable(ABC):
@@ -24,24 +27,28 @@ class Flyable(ABC):
         pass
 
 
-class RedheadDuck(Duck, Flyable):
+class FlyWithWings(Flyable):
+    def fly(self):
+        return "fly with wings"
+
+
+class RedheadDuck(Duck):
+    def __init__(self):
+        super().__init__()
+        self.va = FlyWithWings()
 
     def swim(self):
         return "paddling"
 
     def quack(self):
         return "basic quack"
-
-    def fly(self):
-        return "fly with wings"
 
     def display(self):
         return "redhead duck"
 
 
-# now blue head duck flies the same as red head,
-# and there is many other ducks need to copy and past the same fly method
-class BlueheadDuck(Duck, Flyable):
+# now objects can REUSE the fly method
+class BlueheadDuck(Duck, FlyWithWings):
 
     def swim(self):
         return "paddling"
@@ -49,26 +56,14 @@ class BlueheadDuck(Duck, Flyable):
     def quack(self):
         return "basic quack"
 
-    def fly(self):
-        return "fly with wings"
-
     def display(self):
         return "blue head duck"
 
 
-# now rubber duck does not need to fly
-class RubberDuck(Duck):
-    def display(self):
-        return "rubber duck"
-
-    def swim(self):
-        return "floating"
-
-    def quack(self):
-        return "jioooo"
-
-
 if __name__ == '__main__':
-    rubber_duck = RubberDuck()
     redhead_duck = RedheadDuck()
+    bluehead_duck = BlueheadDuck()
+
+    print(redhead_duck.performFly())
+    # print(bluehead_duck.fly())
 

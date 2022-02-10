@@ -17,9 +17,8 @@ class Duck(ABC):
     def quack(self):
         pass
 
-    @abstractmethod
     def fly(self):
-        pass
+        return "fly with wings"
 
 
 class RedheadDuck(Duck):
@@ -30,14 +29,11 @@ class RedheadDuck(Duck):
     def quack(self):
         return "redhead quack"
 
-    def fly(self):
-        return "redhead fly"
-
     def display(self):
         return "redhead duck"
 
 
-# Here rubber duck shouldn't have fly functionality in the first place
+# Here rubber duck shouldn't have be able to fly
 class RubberDuck(Duck):
     def display(self):
         return "rubber duck"
@@ -49,11 +45,15 @@ class RubberDuck(Duck):
         return "jioooo"
 
     def fly(self):
-        return "can't fly"
+        """
+        override to make it not fly, but what if there is a wooden duck not flying as well?
+        Do we always override?
+        """
+        return "I can't fly"
 
 
 def let_the_duck_fly(duck: Duck) -> None:
-    print(f"{duck.display()} flies like {duck.fly()}")
+    print(f"{duck.display()} flies: {duck.fly()}")
 
 
 if __name__ == '__main__':
