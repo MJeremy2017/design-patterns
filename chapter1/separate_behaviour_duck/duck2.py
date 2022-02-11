@@ -1,8 +1,6 @@
 """
-Duck will now delegate its flying behavior,
-instead of using flying methods defined in the Duck class (or subclass).
+Subclass of duck can inherit different fly behaviours
 """
-
 from abc import ABC, abstractmethod
 
 
@@ -13,9 +11,6 @@ class Flyable(ABC):
 
 
 class Duck(ABC):
-    def __init__(self):
-        self.va: Flyable = None
-
     @abstractmethod
     def display(self):
         pass
@@ -27,12 +22,6 @@ class Duck(ABC):
     @abstractmethod
     def quack(self):
         pass
-
-    def performFly(self):
-        return self.va.fly()
-
-    def setFlyBehaviour(self, fly_behaviour: Flyable):
-        self.va = fly_behaviour
 
 
 class FlyWithWings(Flyable):
@@ -45,10 +34,7 @@ class FlyWithRockets(Flyable):
         return "fly with rockets"
 
 
-class RedheadDuck(Duck):
-    def __init__(self):
-        super().__init__()
-        self.va = FlyWithWings()
+class RedheadDuck(Duck, FlyWithWings):
 
     def swim(self):
         return "paddling"
@@ -61,10 +47,7 @@ class RedheadDuck(Duck):
 
 
 # now objects can REUSE the fly method
-class BlueheadDuck(Duck):
-    def __init__(self):
-        super(BlueheadDuck, self).__init__()
-        self.va = FlyWithRockets()
+class BlueheadDuck(Duck, FlyWithRockets):
 
     def swim(self):
         return "paddling"
@@ -80,6 +63,6 @@ if __name__ == '__main__':
     redhead_duck = RedheadDuck()
     bluehead_duck = BlueheadDuck()
 
-    print(redhead_duck.performFly())
-    print(bluehead_duck.performFly())
+    print(redhead_duck.fly())
+    print(bluehead_duck.fly())
 
