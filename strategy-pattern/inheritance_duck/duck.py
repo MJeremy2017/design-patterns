@@ -33,7 +33,7 @@ class RedheadDuck(Duck):
         return "redhead duck"
 
 
-# Here rubber duck shouldn't have be able to fly
+# Here rubber duck shouldn't be able to fly
 class RubberDuck(Duck):
     def display(self):
         return "rubber duck"
