@@ -7,8 +7,8 @@ encapsulates each one, and makes them interchangeable. Strategy lets the algorit
 
 ## Identify the aspects of your application that vary and separate them from what stays the same.
 
-Take what varies and "encapsulate" it so it won’t affect the rest of your code.
-The result? Fewer unintended consequences from code changes and more flexibility in your systems!
+Take what varies and "encapsulate" it, so it won’t affect the rest of your code.
+The result? Fewer unintended consequences of code changes and more flexibility in your systems!
 
 As simple as this concept is, it forms the basis for almost every design pattern. ***All patterns provide a way to let some part of a system vary independently of all other parts.***
 
@@ -23,3 +23,6 @@ With composition instead of inheritance, you can encapsulate the methods that yo
 all of them.
 
 > Inheritance is not the only way to REUSE!
+
+`Polymorphism` is the task that performs a single action in different ways (same method can be performed in 
+different ways based on the context, the object that calls it).

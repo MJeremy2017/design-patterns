@@ -7,6 +7,7 @@ from abc import ABC, abstractmethod
 
 
 class Flyable(ABC):
+    # say there is a bunch of other redundant functions ...
     @abstractmethod
     def fly(self):
         pass
@@ -14,7 +15,7 @@ class Flyable(ABC):
 
 class Duck(ABC):
     def __init__(self):
-        self.va: Flyable = None
+        self.flyable: Flyable = None
 
     @abstractmethod
     def display(self):
@@ -29,10 +30,10 @@ class Duck(ABC):
         pass
 
     def performFly(self):
-        return self.va.fly()
+        return self.flyable.fly()
 
     def setFlyBehaviour(self, fly_behaviour: Flyable):
-        self.va = fly_behaviour
+        self.flyable = fly_behaviour
 
 
 class FlyWithWings(Flyable):
@@ -48,7 +49,7 @@ class FlyWithRockets(Flyable):
 class RedheadDuck(Duck):
     def __init__(self):
         super().__init__()
-        self.va = FlyWithWings()
+        self.flyable = FlyWithWings()
 
     def swim(self):
         return "paddling"
@@ -64,7 +65,7 @@ class RedheadDuck(Duck):
 class BlueheadDuck(Duck):
     def __init__(self):
         super(BlueheadDuck, self).__init__()
-        self.va = FlyWithRockets()
+        self.flyable = FlyWithRockets()
 
     def swim(self):
         return "paddling"
