@@ -40,3 +40,27 @@ class WeatherData(Subject):
         self.humidity = humidity
         self.pressure = pressure
         self.notify_observer()
+
+    @property
+    def temp(self):
+        return self.temp
+
+    @temp.setter
+    def temp(self, value):
+        self.temp = value
+
+    @property
+    def humidity(self):
+        return self.humidity
+
+    @humidity.setter
+    def humidity(self, value):
+        self.humidity = value
+
+    @property
+    def pressure(self):
+        return self.pressure
+
+    @pressure.setter
+    def pressure(self, value):
+        self.pressure = value
