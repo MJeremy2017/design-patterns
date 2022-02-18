@@ -1,4 +1,6 @@
 # Observer Pattern
+A pattern for communicating state to a set of objects in a loosely coupled manner.
+
 ---
 > Publishers + Subscribers = Observer
 
@@ -11,6 +13,8 @@ __Loose Coupling__
 When two objects are loosely coupled, they can interact, but have very little knowledge of each other.
 The Observer Pattern provides an object design where subjects and observers are loosely coupled.
 
+> Observers are loosely coupled in that the Observable knows nothing about them, 
+> other than that they implement the Observer Interface.
 
 ## Strive for loosely coupled designs between objects that interact
 __The only thing the subject knows about an observer is that it implements a certain interface (the Observer interface).__ 
