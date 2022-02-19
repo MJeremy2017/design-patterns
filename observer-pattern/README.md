@@ -4,7 +4,7 @@ A pattern for communicating state to a set of objects in a loosely coupled manne
 ---
 > Publishers + Subscribers = Observer
 
-![ps](/Users/zhangyue/Workspace/github/design-patterns/images/pub-sub-pattern.png)
+![ps](./images/pub-sub-pattern.png)
 > The Observer Pattern defines a one-to-many dependency between objects so that 
 > when one object changes state, all of its dependents are notified and updated automatically.
 
