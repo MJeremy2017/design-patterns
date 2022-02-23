@@ -3,7 +3,8 @@ from condiments import *
 
 
 if __name__ == '__main__':
-    beverage: Beverage = Espresso()
+    size = 1
+    beverage: Beverage = Espresso(size)
     beverage: Beverage = Mocha(beverage)
     beverage: Beverage = Whip(beverage)
 

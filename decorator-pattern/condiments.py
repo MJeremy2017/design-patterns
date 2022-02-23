@@ -11,7 +11,7 @@ class CondimentsDecorator(Beverage):
 
 class Mocha(CondimentsDecorator):
     def __init__(self, beverage: Beverage):
-        super().__init__()
+        super().__init__(beverage.get_size())
         self.beverage = beverage
 
     def get_description(self) -> str:
@@ -19,17 +19,25 @@ class Mocha(CondimentsDecorator):
 
     def cost(self):
         # delegate cost calculation to beverage and add on the current cost
-        return 0.2 + self.beverage.cost()
+        if self.beverage.get_size() == 0:
+            base_cost = 0.2
+        else:
+            base_cost = 0.5
+        return base_cost + self.beverage.cost()
 
 
 class Whip(CondimentsDecorator):
     def __init__(self, beverage: Beverage):
-        super().__init__()
+        super().__init__(beverage.get_size())
         self.beverage = beverage
 
     def get_description(self) -> str:
         return self.beverage.get_description() + "+ Whip"
 
     def cost(self):
-        return 0.5 + self.beverage.cost()
+        if self.beverage.get_size() == 0:
+            base_cost = 0.5
+        else:
+            base_cost = 0.7
+        return base_cost + self.beverage.cost()
 
