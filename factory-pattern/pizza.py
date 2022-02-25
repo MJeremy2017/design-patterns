@@ -59,3 +59,18 @@ class TurkeyPizza(Pizza):
 
     def box(self):
         pass
+
+
+class NYStyleCheesePizza(CheesePizza):
+    def box(self):
+        print("box a NY stype cheese pizza")
+
+
+class NYStyleClamPizza(ClamPizza):
+    def box(self):
+        print("box a NY stype clam pizza")
+
+
+class NYStyleTurkeyPizza(TurkeyPizza):
+    def box(self):
+        print("box a NY stype turkey pizza")
