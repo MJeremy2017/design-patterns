@@ -15,6 +15,7 @@ class PizzaStore(ABC):
         pass
 
     def order_pizza(self, item: str) -> Pizza:
+        # the superclass does not need to know the concrete implementation of Pizza
         # the subclass handles the concrete pizza instantiation
         pizza: Pizza = self.create_pizza(item)
         pizza.prepare()
