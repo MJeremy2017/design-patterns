@@ -11,3 +11,9 @@ This decouples the client code in the superclass from the object creation code i
 
 
 ## Strive for loosely coupled designs between objects that interact
+
+__Dependency Inversion Principle__
+> Depend upon abstractions. Do not depend upon concrete classes.
+
+It suggests that our `high-level` components should not depend on our `low-level` components; 
+rather, they should both depend on abstractions.
