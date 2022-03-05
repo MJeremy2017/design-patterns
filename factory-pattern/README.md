@@ -17,3 +17,9 @@ __Dependency Inversion Principle__
 
 It suggests that our `high-level` components should not depend on our `low-level` components; 
 rather, they should both depend on abstractions.
+
+__The Abstract Factory Pattern__
+
+> The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes
+
+![img.png](../images/img.png)
