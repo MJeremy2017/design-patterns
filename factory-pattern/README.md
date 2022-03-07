@@ -7,6 +7,8 @@
 A factory method handles object creation and encapsulates it in a subclass.
 This decouples the client code in the superclass from the object creation code in the subclass.
 
+The intent of Factory Method is to allow a class to defer instantiation to its subclasses.
+
 ![img.png](../images/factory-pattern.png)
 
 
@@ -18,7 +20,7 @@ __Dependency Inversion Principle__
 It suggests that our `high-level` components should not depend on our `low-level` components; 
 rather, they should both depend on abstractions.
 
-__The Abstract Factory Pattern__
+# Abstract Factory Pattern
 
 > The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes
 
