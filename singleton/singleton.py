@@ -1,5 +1,12 @@
+"""
+Static method knows nothing about the class and just deals with the parameters
+Class method works with the class since its parameter is always the class itself.
+"""
+
+
 class Singleton:
-    __unique_instance = object()
+    # static variables
+    __unique_instance = None
     __count = 0  # count would be consistent among all instantiation of the singleton
 
     def __init__(self, instance):
@@ -12,7 +19,7 @@ class Singleton:
             return cls.__unique_instance
         print("first time instantiation")
         cls.__unique_instance = Singleton(cls.__unique_instance)
-        return Singleton(cls.__unique_instance)
+        return cls(cls.__unique_instance)
 
     @classmethod
     def increase(cls):
