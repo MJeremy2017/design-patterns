@@ -6,7 +6,7 @@ Class method works with the class since its parameter is always the class itself
 
 class Singleton:
     # static variables
-    __unique_instance = None
+    __unique_instance = object()
     __count = 0  # count would be consistent among all instantiation of the singleton
 
     def __init__(self, instance):
