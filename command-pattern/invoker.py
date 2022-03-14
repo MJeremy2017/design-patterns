@@ -1,13 +1,19 @@
-from command import Command
+from command import Command, NilCommand
+from typing import List
 
 
 # noinspection PyTypeChecker
 class SimpleRemoteControl:
     def __init__(self):
-        self.slot: Command = None
+        self.on_commands: List[Command] = [NilCommand] * 7
+        self.off_commands: List[Command] = [NilCommand] * 7
 
-    def set_command(self, command: Command):
-        self.slot = command
+    def set_command(self, slot: int, on_command: Command, off_command: Command):
+        self.on_commands[slot] = on_command
+        self.off_commands[slot] = off_command
 
-    def button_pressed(self):
-        self.slot.execute()
+    def on_button_pressed(self, slot: int):
+        self.on_commands[slot].execute()
+
+    def off_button_pressed(self, slot: int):
+        self.off_commands[slot].execute()

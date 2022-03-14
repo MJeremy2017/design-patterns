@@ -8,6 +8,11 @@ class Command(ABC):
         pass
 
 
+class NilCommand(Command):
+    def execute(self):
+        pass
+
+
 class LightOnCommand(Command):
     def __init__(self, light: Light):
         self.light = light
@@ -16,11 +21,26 @@ class LightOnCommand(Command):
         self.light.on()
 
 
-class GarageDoorCommand(Command):
+class LightOffCommand(Command):
+    def __init__(self, light: Light):
+        self.light = light
+
+    def execute(self):
+        self.light.off()
+
+
+class GarageDoorUpCommand(Command):
     def __init__(self, garage_door: GarageDoor):
         self.garage_door = garage_door
 
     def execute(self):
         self.garage_door.up()
 
+
+class GarageDoorDownCommand(Command):
+    def __init__(self, garage_door: GarageDoor):
+        self.garage_door = garage_door
+
+    def execute(self):
+        self.garage_door.down()
 
