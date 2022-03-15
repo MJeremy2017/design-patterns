@@ -19,6 +19,10 @@ class RemoteControlTest:
         garage_door_up: Command = GarageDoorUpCommand(garage_door)
         garage_door_down: Command = GarageDoorDownCommand(garage_door)
 
+        ceiling_fan: CeilingFan = CeilingFan("")
+        ceiling_fan_high: Command = CeilingFanHighCommand(ceiling_fan)
+        ceiling_fan_off: Command = CeilingFanOffCommand(ceiling_fan)
+
         remote = SimpleRemoteControl()  # this is the invoker
 
         remote.set_command(0, living_room_light_on, living_room_light_off)
@@ -28,6 +32,19 @@ class RemoteControlTest:
         remote.on_button_pressed(0)
         remote.on_button_pressed(1)
         remote.off_button_pressed(1)
+        remote.off_button_pressed(0)
+
+        print("Test undo button ================================== ")
+        remote.on_button_pressed(0)
+        remote.off_button_pressed(0)
+        remote.undo_button_pressed()
+        remote.off_button_pressed(0)
+
+        print("Test ceiling fan ================================== ")
+        remote.set_command(0, ceiling_fan_high, ceiling_fan_off)
+        remote.on_button_pressed(0)
+        remote.off_button_pressed(0)
+        remote.undo_button_pressed()
         remote.off_button_pressed(0)
 
 
