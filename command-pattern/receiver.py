@@ -14,10 +14,10 @@ class GarageDoor:
         self.name: str = name
 
     def up(self):
-        print(self.name, "garage door is up!")
+        print(self.name, "Garage door is up!")
 
     def down(self):
-        print(self.name, "garage door is down!")
+        print(self.name, "Garage door is down!")
 
 
 class CeilingFan:

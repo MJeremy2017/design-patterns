@@ -1,5 +1,6 @@
 from abc import abstractmethod, ABC
 from receiver import Light, GarageDoor, CeilingFan
+from typing import List
 
 
 class Command(ABC):
@@ -102,3 +103,17 @@ class CeilingFanOffCommand(Command):
             self.ceiling_fan.low()
         else:
             self.ceiling_fan.off()
+
+
+class MacroCommand(Command):
+    def __init__(self, commands: List[Command]):
+        self.commands: List[Command] = commands
+
+    def execute(self):
+        for cmd in self.commands:
+            cmd.execute()
+
+    def undo(self):
+        for cmd in self.commands:
+            cmd.undo()
+

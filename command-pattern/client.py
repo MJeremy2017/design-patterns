@@ -47,6 +47,16 @@ class RemoteControlTest:
         remote.undo_button_pressed()
         remote.off_button_pressed(0)
 
+        print("Test Macro ========================================= ")
+        commands_on: List[Command] = [living_room_light_on, kitchen_light_on, garage_door_up]
+        commands_off: List[Command] = [living_room_light_off, kitchen_light_off, garage_door_down]
+        macro_on: Command = MacroCommand(commands_on)
+        macro_off: Command = MacroCommand(commands_off)
+
+        remote.set_command(3, macro_on, macro_off)
+        remote.on_button_pressed(3)
+        remote.undo_button_pressed(3)
+
 
 if __name__ == '__main__':
     RemoteControlTest.main()
