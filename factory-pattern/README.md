@@ -24,4 +24,4 @@ rather, they should both depend on abstractions.
 
 > The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes
 
-![img.png](../images/img.png)
+![img.png](../images/abstract-factory-pattern.png)

@@ -10,7 +10,7 @@ called, `execute()` causes the actions to be invoked on the receiver.
 From the outside, no other objects really know what actions get performed on what receiver; they just know that if they
 call the `execute()` method, their request will be serviced.
 
-![img.png](../images/img.png)
+![img.png](../images/command-pattern.png)
 
 ### When to Use?
 When you need to decouple an object making requests from the objects that know how to perform the requests, use the
