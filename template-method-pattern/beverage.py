@@ -11,7 +11,8 @@ class CaffeineBeverage(ABC):
         self.boil_water()
         self.brew()
         self.pour_in_cup()
-        self.add_condiments()
+        if self.want_condiments():
+            self.add_condiments()
 
     def boil_water(self):
         print("boiling water")
@@ -26,6 +27,13 @@ class CaffeineBeverage(ABC):
     @abstractmethod
     def add_condiments(self):
         pass
+
+    def want_condiments(self) -> bool:
+        """
+        This is a hook, user can choose to override
+        :return:
+        """
+        return True
 
 
 class Coffee(CaffeineBeverage):
@@ -42,6 +50,9 @@ class Tea(CaffeineBeverage):
 
     def add_condiments(self):
         print("adding lemon")
+
+    def want_condiments(self) -> bool:
+        return False
 
 
 if __name__ == '__main__':
