@@ -1,5 +1,15 @@
 from abc import abstractmethod, ABC
-from menu import *
+from typing import List
+
+
+class MenuItem:
+    def __init__(self, name: str, vegan: bool, price: float):
+        self.name = name
+        self.vegan = vegan
+        self.price = price
+
+    def __str__(self):
+        return f"{self.name}     vegan: {self.vegan}       {self.price}$"
 
 
 class Iterator(ABC):
@@ -10,6 +20,24 @@ class Iterator(ABC):
     @abstractmethod
     def next(self) -> object:
         pass
+
+
+class Menu(ABC):
+    @abstractmethod
+    def get_menu_iterator(self) -> Iterator:
+        pass
+
+
+class DinerMenu(Menu):
+    def __init__(self):
+        self.menu: List[MenuItem] = []
+
+    def add_item(self, name: str, vegan: bool, price: float):
+        item = MenuItem(name, vegan, price)
+        self.menu.append(item)
+
+    def get_menu_iterator(self) -> Iterator:
+        return DinerMenuIterator(self.menu)
 
 
 class DinerMenuIterator(Iterator):
@@ -26,17 +54,3 @@ class DinerMenuIterator(Iterator):
         value: MenuItem = self.menu[self.__position]
         self.__position += 1
         return value
-
-
-if __name__ == '__main__':
-    dm = DinerMenu()
-    dm.add_item("gg", True, 12)
-    dm.add_item("uu", False, 10)
-
-    menu = dm.get_menu()
-
-    dmi = DinerMenuIterator(menu)
-
-    while dmi.has_next():
-        item = dmi.next()
-        print(item)
