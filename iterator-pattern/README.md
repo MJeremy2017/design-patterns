@@ -9,3 +9,13 @@ This not only keeps the aggregate interface and implementation simpler, it remov
 iteration from the aggregate and keeps the aggregate focused on the things it should be focused 
 on (managing a collection of objects), not on iteration.
 
+__Design Principle__
+
+```
+A class should have only one reason to change.
+```
+Every responsibility of a class is an area of potential change. More than one responsibility means more
+than one area of change.
+
+This principle guides us to keep each class to a __single responsibility__.
+
