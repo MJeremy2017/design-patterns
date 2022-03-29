@@ -40,6 +40,18 @@ class DinerMenu(Menu):
         return DinerMenuIterator(self.menu)
 
 
+class CafeMenu(Menu):
+    def __init__(self):
+        self.menu = dict()
+
+    def add_item(self, name: str, vegan: bool, price: float):
+        item = MenuItem(name, vegan, price)
+        self.menu[name] = item
+
+    def get_menu_iterator(self) -> Iterator:
+        return CafeMenuIterator(self.menu)
+
+
 class DinerMenuIterator(Iterator):
     def __init__(self, menu: List[MenuItem]):
         self.menu = menu
@@ -52,5 +64,22 @@ class DinerMenuIterator(Iterator):
 
     def next(self) -> object:
         value: MenuItem = self.menu[self.__position]
+        self.__position += 1
+        return value
+
+
+class CafeMenuIterator(Iterator):
+    def __init__(self, menu: dict):
+        self.menu = menu
+        self.keys = list(menu.keys())
+        self.__position = 0
+
+    def has_next(self) -> bool:
+        if self.__position >= len(self.keys):
+            return False
+        return True
+
+    def next(self) -> object:
+        value = self.menu[self.keys[self.__position]]
         self.__position += 1
         return value
