@@ -19,3 +19,6 @@ class MenuComponent:
 
     def print_menu(self):
         raise NotImplementedError
+
+    def get_menu_iterator(self):
+        raise NotImplementedError
