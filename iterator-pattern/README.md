@@ -22,4 +22,7 @@ This principle guides us to keep each class to a __single responsibility__.
 
 > The Composite Pattern allows you to compose objects into tree structures to represent part-whole hierarchies. 
 > Composite lets clients treat individual objects and compositions of objects uniformly.
+ 
+Compose objects into tree structures to represent part-whole hierarchies. 
+Composite lets clients treat individual objects and compositions of objects uniformly
 
