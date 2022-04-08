@@ -1,7 +1,9 @@
 from gumball_machine import GumballMachine
+from state_gumball_machine import StateGumballMachine
+
 
 def main():
-    gm = GumballMachine(5)
+    gm = StateGumballMachine(5)
     print(gm)
 
     gm.insert_quarter()
@@ -27,6 +29,8 @@ def main():
     gm.turn_crank()
     gm.insert_quarter()
     gm.turn_crank()
+    gm.refill(10)
+    print(gm)
 
 
 if __name__ == '__main__':
