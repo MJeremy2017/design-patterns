@@ -1,8 +1,10 @@
 import random
+from gumball_monitor import GumballMachineRemote
 
 
-class StateGumballMachine:
-    def __init__(self, num_gumballs):
+class StateGumballMachine(GumballMachineRemote):
+    def __init__(self, location, num_gumballs):
+        self.location = location
         self.count = num_gumballs
         self.no_quarter_state = NoQuarterState(self)
         self.sold_out_state = SoldOutState(self)
@@ -30,6 +32,15 @@ class StateGumballMachine:
 
     def refill(self, num_gumballs):
         self.state.refill(num_gumballs)
+
+    def get_count(self) -> int:
+        return self.count
+
+    def get_state(self):
+        return self.state
+
+    def get_location(self) -> str:
+        return self.location
 
     def __str__(self):
         return f"State: {self.state} | Gumball left: {self.count}"
