@@ -3,6 +3,7 @@ from goose import Goose
 from adapter import GooseAdapter
 from decorator import QuackCounter
 from factory import CountingDuckFactory, AbstractDuckFactory
+from composite import Flock
 
 
 def action(duck: Quackable):
@@ -16,11 +17,14 @@ def simulate(duck_factory: AbstractDuckFactory):
     rubber_duck = duck_factory.create_rubber_duck()
     goose_adapter = QuackCounter(GooseAdapter(Goose()))
 
-    action(mallard_duck)
-    action(duck_call)
-    action(redhead_duck)
-    action(rubber_duck)
-    action(goose_adapter)
+    flock_ducks: Flock = Flock()
+    flock_ducks.add_duck(mallard_duck)
+    flock_ducks.add_duck(duck_call)
+    flock_ducks.add_duck(redhead_duck)
+    flock_ducks.add_duck(rubber_duck)
+    flock_ducks.add_duck(goose_adapter)
+
+    action(flock_ducks)
     print("Total quack counter", QuackCounter.get_quack_count())
 
 
