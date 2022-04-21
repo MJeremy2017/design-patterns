@@ -22,18 +22,16 @@ def simulate(duck_factory: AbstractDuckFactory):
     mallard_duck.register_observer(quakologist)
     mallard_duck.quack()
 
-    duck_call.register_observer(quakologist)
-    duck_call.quack()
+    flock_ducks: Flock = Flock()
+    flock_ducks.register_observer(quakologist)
+    flock_ducks.add_duck(mallard_duck)
+    flock_ducks.add_duck(duck_call)
+    flock_ducks.add_duck(redhead_duck)
+    flock_ducks.add_duck(rubber_duck)
+    flock_ducks.add_duck(goose_adapter)
 
-    # flock_ducks: Flock = Flock()
-    # flock_ducks.add_duck(mallard_duck)
-    # flock_ducks.add_duck(duck_call)
-    # flock_ducks.add_duck(redhead_duck)
-    # flock_ducks.add_duck(rubber_duck)
-    # flock_ducks.add_duck(goose_adapter)
-    #
-    # action(flock_ducks)
-    # print("Total quack counter", QuackCounter.get_quack_count())
+    action(flock_ducks)
+    print("Total quack counter", QuackCounter.get_quack_count())
 
 
 if __name__ == '__main__':

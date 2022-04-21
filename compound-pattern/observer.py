@@ -17,22 +17,21 @@ class QuackObservable(ABC):
         ...
 
     @abstractmethod
-    def notify_observers(self):
+    def notify_observers(self, duck: base.Quackable):
         ...
 
 
 class Observable(QuackObservable):
-    def __init__(self, duck: base.Quackable):
-        self.duck: base.Quackable = duck
+    def __init__(self):
         self.observers: List[Observer] = []
 
     def register_observer(self, observer: Observer):
-        print("observable registered")
+        print("observer registered")
         self.observers.append(observer)
 
-    def notify_observers(self):
+    def notify_observers(self, duck: base.Quackable):
         for obs in self.observers:
-            obs.update(self.duck)
+            obs.update(duck)
 
 
 class Quackologist(Observer):
