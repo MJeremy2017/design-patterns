@@ -29,3 +29,7 @@ The Quackologists can even use the Observer Pattern with their composites.
 
 
 ![img.png](../images/compound-2.png)
+
+## Model View Controller
+
+![img.png](../images/mvc.png)
