@@ -33,3 +33,13 @@ The Quackologists can even use the Observer Pattern with their composites.
 ## Model View Controller
 
 ![img.png](../images/mvc.png)
+
+## Bullet Points
+
+- The Model View Controller Pattern (MVC) is a compound pattern **consisting of the Observer, 
+Strategy and Composite patterns.**
+- **The model makes use of the Observer Pattern** so that it can keep observers updated yet stay decoupled from them.
+- **The controller is the strategy for the view.** The view can use different implementations of the 
+controller to get different behavior.
+- The view uses the **Composite Pattern** to implement the user interface, 
+which usually consists of nested components like panels, frames and buttons.
