@@ -13,3 +13,17 @@ If you have a practical need to support change in
 a design today, go ahead and employ a pattern to handle that change. 
 However, if the reason is only hypothetical, don’t add the pattern, it is only going to add 
 complexity to your system, and you might never need it!
+
+>  An Anti-Pattern tells you how to go from a problem to a BAD solution.
+
+## OO Principles
+
+- Encapsulate what varies.
+- Favor composition over inheritance.
+- Abstraction Encapsulation Polymorphism Inheritance
+- Program to interfaces, not implementations.
+- Strive for loosely coupled designs between objects that interact.
+- Classes should be open for extension but closed for modification.
+- Depend on abstractions. Do not depend on concrete classes.
+- Only talk to your friends. Don’t call us, we’ll call you.
+- A class should have only one reason to change.
